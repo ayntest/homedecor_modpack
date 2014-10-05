@@ -535,4 +535,3 @@ minetest.register_craft({
 		{"default:clay", "building_blocks:Tar","default:clay"},
 	}
 })
-
