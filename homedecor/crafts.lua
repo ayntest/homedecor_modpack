@@ -108,7 +108,7 @@ minetest.register_craftitem("homedecor:steel_strip", {
 	inventory_image = "homedecor_steel_strip.png"
 })
 
-minetest.register_craftitem("homedecor:chainlink_steel", {
+minetest.register_craftitem(":glooptest:chainlink", {
 	description = "Steel chainlink",
 	inventory_image = "homedecor_chainlink_steel.png"
 })
@@ -1278,6 +1278,17 @@ minetest.register_craft({
 	}
 })
 
+-- Wrought-iron wall latern
+
+minetest.register_craft({
+	output = "homedecor:wall_lantern 4",
+	recipe = {
+		{ "default:iron_lump", "default:iron_lump", "default:iron_lump" },
+		{ "default:iron_lump", "default:torch", "default:iron_lump" },
+		{ "", "default:iron_lump", "" }
+	}
+})
+
 -- wood-lattice lamps
 
 minetest.register_craft( {
@@ -1454,6 +1465,33 @@ minetest.register_craft( {
 		{ "homedecor:pole_wrought_iron", "default:iron_lump" },
 	},
 })
+
+minetest.register_craft( {
+	output = "homedecor:fence_wrought_iron_2 2",
+	recipe = {
+		{ "homedecor:pole_wrought_iron", "default:iron_lump" },
+		{ "homedecor:pole_wrought_iron", "default:iron_lump" },
+	},
+})
+
+minetest.register_craft( {
+	type = "shapeless",
+	output = "homedecor:fence_wrought_iron_2_corner",
+	recipe = {
+		"homedecor:fence_wrought_iron_2",
+		"homedecor:fence_wrought_iron_2"
+	},
+})
+
+minetest.register_craft( {
+	type = "shapeless",
+	output = "homedecor:fence_wrought_iron_2 2",
+	recipe = {
+		"homedecor:fence_wrought_iron_2_corner",
+	},
+})
+
+--
 
 minetest.register_craft( {
 	output = "homedecor:fence_picket 6",
@@ -1801,6 +1839,17 @@ minetest.register_craft( {
 		{ "dye:white", "dye:white", "" },
 		{ "homedecor:door_wood_plain_bottom_left", "technic:brass_ingot", "" },
 		{ "", "", "" },
+	},
+})
+
+-- woodglass door 
+
+minetest.register_craft( {
+	output = "homedecor:door_woodglass_bottom_left",
+	recipe = {
+		{ "default:wood", "default:glass", "" },
+		{ "default:wood", "default:glass", "technic:brass_ingot" },
+		{ "default:wood", "default:wood", "" },
 	},
 })
 
@@ -2602,8 +2651,6 @@ minetest.register_craft( {
 
 if not minetest.get_modpath("glooptest") then
 
-	minetest.register_alias("glooptest:chainlink", "homedecor:chainlink_steel")
-
 	minetest.register_craft({
 		output = "glooptest:chainlink 12",
 		recipe = {
@@ -2615,12 +2662,14 @@ if not minetest.get_modpath("glooptest") then
 
 end
 
+minetest.register_alias("homedecor:chainlink_steel", "glooptest:chainlink")
+
 minetest.register_craft({
 	output = "homedecor:chains 4",
 	recipe = {
 	    { "default:steel_ingot", "", "default:steel_ingot"},
-	    { "homedecor:chainlink_steel", "", "homedecor:chainlink_steel" },
-	    { "homedecor:chainlink_steel", "", "homedecor:chainlink_steel" },
+	    { "glooptest:chainlink", "", "glooptest:chainlink" },
+	    { "glooptest:chainlink", "", "glooptest:chainlink" },
 	},
 })
 
@@ -2833,3 +2882,19 @@ for _, color in ipairs(bookcolors) do
 	})
 end
 
+minetest.register_craft({
+	output = "homedecor:jpn_door_bottom",
+	recipe = {
+		{ "homedecor:japanese_wall_top" },
+		{ "homedecor:japanese_wall_bottom" }
+	},
+})
+
+minetest.register_craft({
+	output = "homedecor:calendar",
+	recipe = {
+		{ "","dye:red","" },
+		{ "","dye:black","" },
+		{ "","default:paper","" }
+	},
+})
