@@ -593,7 +593,6 @@ minetest.register_node("homedecor:japanese_wall_top", {
 			{-0.281, -0.5, 0, -0.219, 0.5, 0.0625}, -- NodeBox8
 			{0.219, -0.5, 0, 0.281, 0.5, 0.0625}, -- NodeBox9
 			{-0.5, -0.281, 0, 0.5, -0.21875, 0.0625}, -- NodeBox10
-		}
 	},
 	selection_box = {
 		type = "fixed",
